@@ -12,13 +12,13 @@ class PontoTuristicoViewSet(ModelViewSet):
     serializer_class = PontoTuristicoSerializer
     filter_backends = (SearchFilter,)
 
-    """ PRINCIPAL
-    permission_classes = (IsAuthenticated,)"""
+    """ PRINCIPAL"""
+    permission_classes = (IsAuthenticated,)
 
     """
     permission_classes = (IsAuthenticatedOrReadOnly,)"""
 
-    permission_classes = (DjangoModelPermissions,)
+    """permission_classes = (DjangoModelPermissions,)"""
 
     """Permissao para admin
     permission_classes = (IsAdminUser,)
