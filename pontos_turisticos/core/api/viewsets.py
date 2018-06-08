@@ -12,6 +12,12 @@ class PontoTuristicoViewSet(ModelViewSet):
     filter_backends = (SearchFilter,)
     search_fields = ('nome', 'descricao', 'endereco__linha1')
 
+    """Busca por um campo determinado, porém, TEM que ser único! EX: cnpj, cpf, id...
+        
+    lookup_field = 'nome'
+        
+    """
+
     def get_queryset(self):
         """"return PontoTuristico.objects.filter(aprovado=True)"""
         id = self.request.query_params.get('id', None)
