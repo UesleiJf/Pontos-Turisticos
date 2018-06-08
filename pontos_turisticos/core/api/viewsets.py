@@ -1,7 +1,7 @@
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.decorators import action
 from rest_framework.filters import SearchFilter
-from rest_framework.permissions import IsAuthenticated, IsAdminUser, IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticated, IsAdminUser, IsAuthenticatedOrReadOnly, DjangoModelPermissions
 from rest_framework.viewsets import ModelViewSet
 from core.models import PontoTuristico
 from .serializers import PontoTuristicoSerializer
@@ -15,7 +15,10 @@ class PontoTuristicoViewSet(ModelViewSet):
     """ PRINCIPAL
     permission_classes = (IsAuthenticated,)"""
 
-    permission_classes = (IsAuthenticatedOrReadOnly,)
+    """
+    permission_classes = (IsAuthenticatedOrReadOnly,)"""
+
+    permission_classes = (DjangoModelPermissions,)
 
     """Permissao para admin
     permission_classes = (IsAdminUser,)
