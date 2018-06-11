@@ -1,0 +1,1 @@
+web: gunicorn pontos-turisticos-2018.wsgi --log-file -
