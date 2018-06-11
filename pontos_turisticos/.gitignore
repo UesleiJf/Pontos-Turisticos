@@ -1,0 +1,4 @@
+venv
+*.sqllite3
+.idea
+
