@@ -1,4 +1,6 @@
 from django.db import models
+
+from DocIdentificacao.models import DocIdentificacao
 from atracoes.models import Atracao
 from comentarios.models import Comentario
 from avaliacoes.models import Avaliacao
@@ -14,6 +16,9 @@ class PontoTuristico(models.Model):
     avaliacoes = models.ManyToManyField(Avaliacao)
     endereco = models.ForeignKey(Endereco, on_delete=models.CASCADE, null=True, blank=True)
     foto = models.ImageField(upload_to='pontos_turisticos', null=True, blank=True)
+    doc_identificacao = models.OneToOneField(
+        DocIdentificacao, on_delete=models.CASCADE, null=True, blank=True
+    )
 
     @property
     def descricao_completa2(self):
