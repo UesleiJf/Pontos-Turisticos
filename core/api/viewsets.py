@@ -16,6 +16,7 @@ class PontoTuristicoViewSet(ModelViewSet):
     permission_classes = (IsAuthenticated,)
 
     """
+    Altenticação somente para leitura
     permission_classes = (IsAuthenticatedOrReadOnly,)"""
 
     """permission_classes = (DjangoModelPermissions,)"""
