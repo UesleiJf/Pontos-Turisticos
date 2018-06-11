@@ -1,12 +1,12 @@
 from rest_framework.fields import SerializerMethodField
 from rest_framework.serializers import ModelSerializer
 
-from atracoes.models import Atracao
-from core.models import PontoTuristico
+from core.models import PontoTuristico, Atracao
 from atracoes.api.serializers import AtracaoSerializer
 from endereco.api.serializers import EnderecoSerializer
 from comentarios.api.serializers import ComentarioSerializer
 from avaliacoes.api.serializers import AvaliacaoSerializer
+from endereco.models import Endereco
 
 
 class PontoTuristicoSerializer(ModelSerializer):
@@ -32,8 +32,17 @@ class PontoTuristicoSerializer(ModelSerializer):
     def create(self, validated_data):
         atracoes = validated_data['atracoes']
         del validated_data['atracoes']
+
+        endereco = validated_data['endereco']
+        del validated_data['endereco']
+
         ponto = PontoTuristico.objects.create(**validated_data)
         self.cria_atracoes(atracoes, ponto)
+
+        end = Endereco.objects.create(**endereco)
+        ponto.endereco = end
+
+        ponto.save()
 
         return ponto
 
