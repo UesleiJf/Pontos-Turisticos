@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'comentarios',
     'avaliacoes',
     'endereco',
-    'DocIdentificacao'
 ]
 
 MIDDLEWARE = [
