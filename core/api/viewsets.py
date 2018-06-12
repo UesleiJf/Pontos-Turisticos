@@ -14,7 +14,8 @@ class PontoTuristicoViewSet(ModelViewSet):
     filter_backends = (SearchFilter,)
 
     """ PRINCIPAL"""
-    permission_classes = (IsAuthenticated,)
+    """
+    permission_classes = (IsAuthenticated,) """
 
     """
     Altenticação somente para leitura
@@ -25,7 +26,8 @@ class PontoTuristicoViewSet(ModelViewSet):
     """Permissao para admin
     permission_classes = (IsAdminUser,)
     """
-    authentication_classes = (TokenAuthentication,)
+    """
+    authentication_classes = (TokenAuthentication,) """
     search_fields = ('nome', 'descricao', 'endereco__linha1')
 
     """Busca por um campo determinado, porém, TEM que ser único! EX: cnpj, cpf, id...
