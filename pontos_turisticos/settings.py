@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'comentarios',
     'avaliacoes',
     'endereco',
+    'documento',
 ]
 
 MIDDLEWARE = [
